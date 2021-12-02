@@ -17,7 +17,7 @@ romeCodes.set("redaction", "H1207");
 router.get("/companies", async (req, res) => {
     try {
         let companies = await CompanyModel.find();
-        res.status(200).send(companies);
+        companies ? res.status(200).send(companies) : res.status(204);
 
     } catch (error) {
         console.log(error);
@@ -31,7 +31,7 @@ router.get("/companies/:id", async (req, res) => {
 
     try {
         companies = await CompanyModel.findById(id);
-        res.status(200).send(companies);
+        companies ? res.status(200).send(companies) : res.status(400);
 
     } catch (error) {
         console.log(error);
@@ -53,7 +53,7 @@ router.get("/rome/:label", async (req, res) => {
             }) :
             await CompanyModel.find({ matched_rome_code: romeCode });
 
-        res.status(200).send(companies);
+        companies ? res.status(200).send(companies) : res.status(400);
 
     } catch (error) {
         console.log(error);

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('./src/models/dbConfig');
+require('./src/config/dbConfig');
 const companiesRoutes = require('./src/routes/companies');
 
 const port = 8383;

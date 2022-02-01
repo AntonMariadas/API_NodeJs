@@ -6,7 +6,7 @@ require('./src/config/dbConfig');
 const companiesRoutes = require('./src/routes/companies');
 
 
-const port = PORT || 8383;
+const port = process.env.PORT;
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', companiesRoutes);

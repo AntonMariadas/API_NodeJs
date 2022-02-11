@@ -11,6 +11,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', companiesRoutes);
 
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
     console.log(`listening on : ${port}`);
 });

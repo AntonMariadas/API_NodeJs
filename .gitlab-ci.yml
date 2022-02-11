@@ -1,7 +1,21 @@
 stages:
+  - test
+  - build
   - deploy
 
-deploy:
+application test:
+  image: node
+  stage: test
+  script:
+    - npm run test
+
+application build:
+  image: node
+  stage: build
+  script:
+    - npm install
+
+deployment:
   image: ruby:latest
   stage: deploy
   before_script:

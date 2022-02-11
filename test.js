@@ -11,7 +11,7 @@ describe('Companies API', () => {
     describe("GET /api/companies", () => {
         it("It should GET all companies", (done) => {
             chai.request(server)
-                .get('/api/companies/')
+                .get('/api/companies')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
